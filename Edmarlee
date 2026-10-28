@@ -1,0 +1,39 @@
+
+int main() {
+    int students, score;
+    int excellent = 0, satisfactory = 0, needsImprovement = 0;
+
+    printf("Enter the number of students: ");
+    scanf("%d", &students);
+
+    for (int i = 1; i <= students; i++) {
+        printf("Enter score of student %d (0-20): ", i);
+        scanf("%d", &score);
+
+        if (score < 0 || score > 20) {
+            printf("Invalid score! Please enter 0-20.\n");
+            i--;
+            continue;
+        }
+
+        if (score >= 18) {
+            printf("Student %d: Excellent\n", i);
+            excellent++;
+        } else if (score >= 15) {
+            printf("Student %d: Satisfactory\n", i);
+            satisfactory++;
+        } else {
+            printf("Student %d: Needs Improvement\n", i);
+            needsImprovement++;
+        }
+    }
+
+    printf("\n===== QUIZ SUMMARY =====\n");
+    printf("Excellent: %d student(s)\n", excellent);
+    printf("Satisfactory: %d student(s)\n", satisfactory);
+    printf("Needs Improvement: %d student(s)\n", needsImprovement);
+    printf("Total students: %d\n",
+           excellent + satisfactory + needsImprovement);
+
+    return 0;
+}
